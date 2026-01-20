@@ -25,7 +25,7 @@ A complete production-ready web application that allows users to upload public d
 
 1. **Clone the repository:**
 ```bash
-git clone <repository-url>
+git clone https://github.com/kani-jayachandran/refill_civic.git
 cd civic-extract
 ```
 
