@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicExtract - AI Data Extraction Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏛️ CivicExtract</h1>
+            <p>AI Platform for Public Data Extraction & Structuring</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-card">
+                <h2>Upload Document</h2>
+                <p>Upload a PDF or image file to extract and structure data</p>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📄</div>
+                        <p>Drag & drop your file here or <span class="browse-link">browse</span></p>
+                        <p class="file-info">Supported: PDF, JPG, PNG, BMP, TIFF (Max 10MB)</p>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.bmp,.tiff" hidden>
+                </div>
+
+                <div class="selected-file" id="selectedFile" style="display: none;">
+                    <div class="file-details">
+                        <span class="file-name" id="fileName"></span>
+                        <span class="file-size" id="fileSize"></span>
+                    </div>
+                    <button class="remove-file" id="removeFile">✕</button>
+                </div>
+
+                <button class="upload-btn" id="uploadBtn" disabled>
+                    <span class="btn-text">Extract Data</span>
+                    <span class="btn-loader" style="display: none;">⏳ Processing...</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="progress-section" id="progressSection" style="display: none;">
+            <div class="progress-card">
+                <h3>Processing Document</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text" id="progressText">Initializing...</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>Extraction Results</h2>
+                <div class="results-summary" id="resultsSummary"></div>
+            </div>
+
+            <!-- Text Summary -->
+            <div class="text-summary-card" id="textSummaryCard" style="display: none;">
+                <h3>📝 Text Summary</h3>
+                <p id="textSummary"></p>
+            </div>
+
+            <!-- Tables -->
+            <div class="tables-container" id="tablesContainer"></div>
+
+            <!-- Error Messages -->
+            <div class="error-messages" id="errorMessages" style="display: none;">
+                <h3>⚠️ Processing Notes</h3>
+                <ul id="errorList"></ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 CivicExtract - Open Source AI Data Extraction Platform</p>
+            <p>Built with FastAPI, Python, and modern web technologies</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Processing Document</h3>
+            <p id="loadingMessage">Analyzing your document...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
